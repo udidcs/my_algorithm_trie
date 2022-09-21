@@ -18,7 +18,7 @@ print(jong[b%28])
 
 print(chr(b//588*588+b//28%21*28+b%28 + ord('가')))
 
-- 트라이 자료구조
+- 트라이 자료구조(자료 한번 보고 안보고 스스로 구현 하였습니다)
 
 add, getallwords, findnode
 
