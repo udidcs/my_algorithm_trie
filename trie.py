@@ -24,15 +24,13 @@ print(root)
 def getallwords(cur, st, tmp):
     for i in cur:
         if cur[i] == '*':
-            st += [copy.deepcopy(''.join(tmp))]
+            st += [''.join(tmp)]
         else:
             tmp += [i]
-            cur2 = cur[i]
-            getallwords(cur2, st, tmp)
+            getallwords(cur[i], st, tmp)
             tmp.pop()
 st = []
 getallwords(root, st, [])
-print(st)
 
 
 def findnode(cur, word):
@@ -45,7 +43,7 @@ def findnode(cur, word):
 
 
 st = []
-word = '바ㄴ'
+word = '바'
 getallwords(findnode(root, word), st, [])
 st = [word + i for i in st]
 print(st)
