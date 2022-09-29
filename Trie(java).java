@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import lombok.Data;
+import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,7 +24,12 @@ public class Trie {
                 cur = (HashMap<Character, Object>)cur.get(c);
             }
         }
-        cur.put('*', '*');
+        Integer num = (Integer)cur.get('*');
+        if (num==null)
+            cur.put('*', 0);
+        else
+            cur.put('*', num+1);
+
     }
 
 
@@ -40,7 +46,7 @@ public class Trie {
 
     private void getAllWordsRecur(HashMap<Character, Object> cur, ArrayList<String> st, ArrayList<Character> tmp) {
         for (Character character : cur.keySet()) {
-            if (cur.get(character) instanceof Character) {
+            if (cur.get(character) instanceof Integer) {
                 String str = "";
                 for (Character c : tmp) {
                     str += c;
@@ -68,7 +74,6 @@ public class Trie {
         }
         return cur;
     }
-
 
 
 }
